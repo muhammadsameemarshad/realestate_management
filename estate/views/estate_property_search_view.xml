@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_estate_property_search" model="ir.ui.view">
+            <field name="name">estate.property.search</field>
+            <field name="model">estate.property</field>
+            <field name="arch" type="xml">
+                <search>
+                    <!-- Existing search criteria fields -->
+                    <field name="name" string="Property Name"/>
+                    <field name="description" string="Description"/>
+                    <field name="postcode" string="Postcode"/>
+                    <field name="data_availability" string="Data Availability"/>
+                    <field name="expected_price" string="Expected Price"/>
+                    <field name="selling_price" string="Selling Price"/>
+                    <field name="bedrooms" string="Bedrooms"/>
+                    <field name="living_area" string="Living Area"/>
+                    <field name="facades" string="Facades"/>
+                    <field name="garage" string="Garage"/>
+                    <field name="garden" string="Garden"/>
+                    <field name="garden_area" string="Garden Area"/>
+                    <field name="garden_orientation" string="Garden Orientation"/>
+                    <field name="availability_date" string="Availability Date"/>
+                    <field name="state" string="State"/>
+
+                    <!-- Add filter option for available properties -->
+                    <filter string="Available Properties" name="filter_available"
+                            domain="[('state', 'in', ['New', 'Offer Received'])]"/>
+
+                    <!-- Add Group By option for postcode -->
+                    <group expand="0" string="Group by">
+                        <filter name="group_by_postcode" string="Postcode" context="{'group_by': 'postcode'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+    </data>
+</odoo>
